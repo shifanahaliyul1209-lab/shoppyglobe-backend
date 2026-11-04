@@ -2,13 +2,14 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import connectDB from "./config/db.js";
-
+import productRoutes from "./routes/productRoutes.js";
 const app = express();
 
 // Middleware: allow other apps to call the API, and read JSON request bodies
 app.use(cors());
 app.use(express.json());
-
+// Product routes
+app.use("/products", productRoutes);
 // Connect to MongoDB
 connectDB();
 
