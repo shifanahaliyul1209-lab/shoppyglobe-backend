@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import cartRoutes from "./routes/cartRoutes.js";
 const app = express();
 
 // Middleware: allow other apps to call the API, and read JSON request bodies
@@ -12,6 +13,7 @@ app.use(express.json());
 // Product routes
 app.use("/products", productRoutes);
 app.use("/", authRoutes);
+app.use("/cart", cartRoutes);
 // Connect to MongoDB
 connectDB();
 
